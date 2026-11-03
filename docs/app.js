@@ -30,22 +30,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 2. Copy Quick-Install Script
   const copyBtn = document.getElementById("copyBtn");
-  if (copyBtn) {
-    copyBtn.addEventListener("click", () => {
+  const copyMethodBtn = document.getElementById("copyMethodBtn");
+
+  function attachCopy(btn) {
+    if (!btn) return;
+    btn.addEventListener("click", () => {
       const codeText = "irm https://soldier-soft.github.io/ssb_studio/install.ps1 | iex";
       navigator.clipboard.writeText(codeText).then(() => {
-        const original = copyBtn.innerText;
-        copyBtn.innerText = "✓ Copied!";
-        copyBtn.style.background = "#10b981";
-        copyBtn.style.color = "#ffffff";
+        const original = btn.innerText;
+        btn.innerText = "✓ Copied!";
+        btn.style.background = "#10b981";
+        btn.style.color = "#ffffff";
         setTimeout(() => {
-          copyBtn.innerText = original;
-          copyBtn.style.background = "";
-          copyBtn.style.color = "";
+          btn.innerText = original;
+          btn.style.background = "";
+          btn.style.color = "";
         }, 2200);
       });
     });
   }
+
+  attachCopy(copyBtn);
+  attachCopy(copyMethodBtn);
 
   // 3. Interactive Web Demo Simulator
   const simWord = document.getElementById("simWord");
@@ -92,3 +98,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   }
 });
+

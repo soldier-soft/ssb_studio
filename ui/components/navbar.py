@@ -137,9 +137,9 @@ class SidebarNav(QFrame):
         main_layout.addWidget(self.theme_btn)
 
         # Version & Offline status footer
-        footer_lbl = QLabel("SSB Studio v1.0 • Offline-First")
+        footer_lbl = QLabel("SSB Studio v1.0 • Offline-First\nDeveloped by Lt. V. Elangovan")
         footer_lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        footer_lbl.setStyleSheet("font-size: 9.5px; color: #64748B; padding-top: 4px;")
+        footer_lbl.setStyleSheet("font-size: 9.5px; color: #64748B; padding-top: 4px; line-height: 1.3;")
         main_layout.addWidget(footer_lbl)
         self.apply_theme("dark")
 

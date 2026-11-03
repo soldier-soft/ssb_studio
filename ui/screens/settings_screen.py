@@ -60,6 +60,7 @@ class SettingsScreen(QWidget):
         self._build_sound_section()
         self._build_ocr_section()
         self._build_storage_info_section()
+        self._build_about_section()
         self._build_footer_actions()
 
         scroll.setWidget(content)
@@ -246,6 +247,36 @@ class SettingsScreen(QWidget):
         btn_open_folder = QPushButton("📁 Open Application Data Directory in Explorer")
         btn_open_folder.clicked.connect(self._on_open_data_folder)
         layout.addWidget(btn_open_folder, alignment=Qt.AlignmentFlag.AlignLeft)
+
+        self.main_layout.addWidget(card)
+
+    def _build_about_section(self) -> None:
+        card = QFrame()
+        card.setProperty("class", "CardFrame")
+        layout = QVBoxLayout(card)
+        layout.setSpacing(10)
+
+        lbl = QLabel("ABOUT & DEVELOPER CREDIT")
+        lbl.setProperty("class", "StatLabel")
+        layout.addWidget(lbl)
+
+        title_lbl = QLabel("SSB Practice Studio — Officer Assessment Psychological Tests")
+        title_lbl.setStyleSheet("font-weight: 700; font-size: 14px; color: #38BDF8;")
+        layout.addWidget(title_lbl)
+
+        dev_lbl = QLabel("🎖️ Designed & Developed by Lt. V. Elangovan")
+        dev_lbl.setStyleSheet("font-weight: 700; font-size: 13px; color: #F1F5F9;")
+        layout.addWidget(dev_lbl)
+
+        desc_lbl = QLabel(
+            "Dedicated to empowering defense aspirants preparing for Services Selection Board (SSB) Interviews "
+            "(NDA, CDS, AFCAT, TGC, Army, Navy, Air Force & Coast Guard).\n"
+            "Features 100% offline-first testing for Word Association Test (WAT), Situation Reaction Test (SRT), "
+            "and Thematic Apperception Test (TAT)."
+        )
+        desc_lbl.setStyleSheet("color: #94A3B8; font-size: 12px; line-height: 1.4;")
+        desc_lbl.setWordWrap(True)
+        layout.addWidget(desc_lbl)
 
         self.main_layout.addWidget(card)
 
