@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSB Practice Studio — Officer Assessment Psychological Tests (WAT, SRT, TAT)</title>
+  <meta name="description" content="Realistic 100% offline psychological test preparation studio for SSB Aspirants (NDA, CDS, AFCAT, TGC). Practice WAT, SRT, and TAT with authentic exam timing and custom material import.">
+  <link rel="icon" type="image/png" href="assets/app_icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <img src="assets/app_icon.png" alt="SSB Practice Studio Icon" class="brand-icon">
+        <div>
+          <div class="brand-title">SSB STUDIO</div>
+          <div class="brand-sub">Officer Assessment</div>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#modules" class="nav-link">WAT &bull; SRT &bull; TAT</a></li>
+        <li><a href="#install" class="nav-link">Download &amp; Setup</a></li>
+        <li><a href="https://github.com/soldier-soft/ssb_studio" target="_blank" rel="noopener" class="nav-link">GitHub</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme">🌙 Dark</button>
+        <a href="#install" class="btn-nav-download">Download App</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="badge-pill">
+      <span class="pulse-dot"></span>
+      <span>100% Offline-First &bull; Private &bull; Windows 10 &amp; 11</span>
+    </div>
+
+    <h1 class="hero-title">
+      Master the SSB Psychological Tests with <span class="hero-gradient">Authentic Exam Cadence</span>
+    </h1>
+
+    <p class="hero-sub">
+      The ultimate defense psychological test studio. Practice Word Association (WAT), Situation Reaction (SRT), and Thematic Apperception (TAT) under realistic pressure. Import your own coaching materials or practice with official 60-item banks.
+    </p>
+
+    <div class="cta-row">
+      <a href="https://github.com/soldier-soft/ssb_studio/releases/latest/download/SSB_Practice_Studio_Windows.zip" class="btn-primary-download">
+        <span>⬇ Download for Windows</span>
+        <span style="font-size: 0.85rem; opacity: 0.85; font-weight: normal;">(ZIP + 1-Click Desktop Shortcut)</span>
+      </a>
+      <a href="https://github.com/soldier-soft/ssb_studio" target="_blank" rel="noopener" class="btn-secondary-gh">
+        <span>⭐ View on GitHub</span>
+      </a>
+    </div>
+
+    <!-- 1-Click PowerShell Install Command -->
+    <div class="quick-install-box">
+      <span style="color: var(--text-muted); font-size: 0.78rem;">POWERSHELL 1-CLICK INSTALL:</span>
+      <code class="cli-code">irm https://soldier-soft.github.io/ssb_studio/install.ps1 | iex</code>
+      <button id="copyBtn" class="btn-copy">Copy</button>
+    </div>
+
+    <!-- Live Interactive App Simulator -->
+    <div class="simulator-card">
+      <div class="sim-header">
+        <div class="sim-dots">
+          <span class="sim-dot dot-red"></span>
+          <span class="sim-dot dot-yellow"></span>
+          <span class="sim-dot dot-green"></span>
+        </div>
+        <span class="sim-badge">EXAM MODE &bull; ACTIVE SIMULATION</span>
+      </div>
+
+      <div class="sim-timer-cockpit">
+        <div>
+          <div class="sim-phase" id="simPhase">WORD ASSOCIATION TEST (15s CADENCE)</div>
+          <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">Monotonic Drift-Free Engine</div>
+        </div>
+        <div class="sim-digits" id="simDigits">00:15</div>
+      </div>
+
+      <div class="sim-prompt-box">
+        <div class="sim-word-caption" id="simCaption">WORD #1 OF 60 &bull; ASSOCIATE SPONTANEOUSLY</div>
+        <div class="sim-word" id="simWord">COURAGE</div>
+      </div>
+
+      <div class="sim-input-box">
+        <span style="color: var(--text-muted); font-style: italic;">Candidate types spontaneous reaction here... (Auto-advances every 15 seconds)</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Feature Highlights -->
+  <section id="features" class="section">
+    <div class="section-head">
+      <h2 class="section-title">Built Specially for Defense Aspirants</h2>
+      <p class="section-sub">Zero distractions. Zero lag. Complete officer-like qualities (OLQs) assessment workflows right on your laptop.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon-wrap">🔒</div>
+        <h3 class="feature-title">100% Offline &amp; Private</h3>
+        <p class="feature-desc">All candidate answers, timing metrics, and test history are stored locally on your machine in encrypted SQLite. No cloud account or internet required.</p>
+        <ul class="feature-list">
+          <li>Zero telemetry or tracking</li>
+          <li>Never leaks your private test answers</li>
+          <li>Practice in remote locations or barracks</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap">⚡</div>
+        <h3 class="feature-title">Precise Monotonic Timing</h3>
+        <p class="feature-desc">Engineered with high-precision monotonic deadlines to prevent time-drift. Exam Mode enforces strict official rules without skipping or pausing.</p>
+        <ul class="feature-list">
+          <li>15-second WAT automatic advancement</li>
+          <li>30-second SRT decisive reaction cadence</li>
+          <li>30s viewing + 4min TAT writing timing</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap">📂</div>
+        <h3 class="feature-title">Custom Content Import</h3>
+        <p class="feature-desc">Easily import your coaching material, past papers, or personal practice sets in PDF, Word (DOCX), plain text, or image folders.</p>
+        <ul class="feature-list">
+          <li>Multi-column PDF reading &amp; OCR fallback</li>
+          <li>SRT Rule 1: Natural sequential order (1 to 60)</li>
+          <li>SRT Rule 2: Strict reaction endings '( ... )'</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deep Dive Modules -->
+  <section id="modules" class="section" style="background: var(--bg-glass); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="section-head">
+      <h2 class="section-title">The Three Core Psychological Tests</h2>
+      <p class="section-sub">Comprehensive simulation covering all three written batteries conducted on Day 2 of SSB Interviews.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon-wrap">⚡</div>
+        <h3 class="feature-title">Word Association Test (WAT)</h3>
+        <p class="feature-desc">60 consecutive words flashed for 15 seconds each. Candidates must write their spontaneous thought without hesitation.</p>
+        <ul class="feature-list">
+          <li>Pop-in word reveal animations</li>
+          <li>Rapid response recording &amp; autosave</li>
+          <li>Practice Mode: navigate back &amp; forth</li>
+          <li>60 standard words pre-loaded in sample bank</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap">🎯</div>
+        <h3 class="feature-title">Situation Reaction Test (SRT)</h3>
+        <p class="feature-desc">60 real-life day-to-day, social, and military crisis situations to evaluate promptness and practical officer qualities.</p>
+        <ul class="feature-list">
+          <li>High-contrast highlight on reaction stem '( ... )'</li>
+          <li>Word &amp; character density live feedback</li>
+          <li>30-second per slide or 30-minute full exam</li>
+          <li>60 standard situations pre-loaded</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap">🖼️</div>
+        <h3 class="feature-title">Thematic Apperception Test (TAT)</h3>
+        <p class="feature-desc">12 pictures shown consecutively. Candidates write structured stories describing the past, present, feelings, and positive resolution.</p>
+        <ul class="feature-list">
+          <li>30 seconds picture viewing phase</li>
+          <li>4 minutes (270s) story writing phase</li>
+          <li>Picture #12 Blank Slide handling</li>
+          <li>Word count tracking &amp; evaluator story notes</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download & 1-Click Setup Guide -->
+  <section id="install" class="section">
+    <div class="section-head">
+      <h2 class="section-title">Download &amp; 1-Click Desktop Setup</h2>
+      <p class="section-sub">No complex installation wizard required. Unzip and run the setup batch script to generate your Desktop icon.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3 class="step-title">Download the Package</h3>
+        <p class="step-desc">Download <a href="https://github.com/soldier-soft/ssb_studio/releases/latest/download/SSB_Practice_Studio_Windows.zip" style="color: var(--accent-cyan); font-weight: 700;">SSB_Practice_Studio_Windows.zip</a> from GitHub Releases.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3 class="step-title">Extract the Archive</h3>
+        <p class="step-desc">Extract all files to your preferred location (such as <code>C:\SSB_Studio</code> or your Documents folder).</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3 class="step-title">1-Click Desktop Setup</h3>
+        <p class="step-desc">Double-click <code>Setup_And_Create_Desktop_Shortcut.bat</code>. It creates a shortcut on your Desktop with the app icon and launches the app!</p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px;">
+      <a href="https://github.com/soldier-soft/ssb_studio/releases/latest/download/SSB_Practice_Studio_Windows.zip" class="btn-primary-download">
+        ⬇ Download SSB Practice Studio for Windows
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; align-items: center;">
+      <div style="font-weight: 800; color: var(--text-primary); letter-spacing: 0.5px;">
+        SSB PRACTICE STUDIO &bull; OFFICER ASSESSMENT
+      </div>
+      <div>
+        Free &amp; Open Source &bull; Dedicated to Indian Armed Forces Candidates (Army &bull; Navy &bull; Air Force &bull; Coast Guard)
+      </div>
+      <div>
+        <a href="https://github.com/soldier-soft/ssb_studio" target="_blank" rel="noopener">GitHub Repository</a> &bull; 
+        <a href="https://github.com/soldier-soft/ssb_studio/releases" target="_blank" rel="noopener">Releases &amp; Changelog</a> &bull;
+        <a href="https://github.com/soldier-soft/ssb_studio/issues" target="_blank" rel="noopener">Report Issue</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
