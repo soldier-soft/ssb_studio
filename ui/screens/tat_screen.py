@@ -101,6 +101,7 @@ class TATScreen(QWidget):
         self.guidance_lbl = QLabel(
             "Write your story: Describe what led to the situation, what is happening at the moment, the characters' feelings/thoughts, and the final outcome."
         )
+        self.guidance_lbl.setWordWrap(True)
         self.guidance_lbl.setStyleSheet("color: #94A3B8; font-size: 12px; font-style: italic;")
         write_layout.addWidget(self.guidance_lbl)
 

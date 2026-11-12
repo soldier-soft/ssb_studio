@@ -25,13 +25,13 @@ class TimerWidget(QFrame):
     def __init__(self, parent: Optional[QFrame] = None) -> None:
         super().__init__(parent)
         self.setProperty("class", "CardFrame")
-        self.setMinimumHeight(150)
+        self.setMinimumHeight(120)
         self.theme_name: str = "dark"
         self._is_critical: Optional[bool] = None
 
         main_layout = QVBoxLayout(self)
-        main_layout.setContentsMargins(24, 18, 24, 18)
-        main_layout.setSpacing(12)
+        main_layout.setContentsMargins(20, 12, 20, 12)
+        main_layout.setSpacing(10)
 
         # Top row: Phase Badge, Item Counter Pill, and Practice Controls
         top_row = QHBoxLayout()

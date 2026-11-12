@@ -90,14 +90,14 @@ class SRTScreen(QWidget):
         self.situation_text_lbl.setWordWrap(True)
         situation_layout.addWidget(self.situation_text_lbl)
 
-        self.main_layout.addWidget(self.situation_card)
+        self.main_layout.addWidget(self.situation_card, stretch=1)
 
         # Response Reaction Editor
         reaction_card = QFrame()
         reaction_card.setProperty("class", "CardFrame")
         reaction_layout = QVBoxLayout(reaction_card)
-        reaction_layout.setContentsMargins(18, 14, 18, 14)
-        reaction_layout.setSpacing(8)
+        reaction_layout.setContentsMargins(18, 12, 18, 12)
+        reaction_layout.setSpacing(6)
 
         reaction_header = QLabel("Your immediate reaction / resolution:")
         reaction_header.setProperty("class", "Subtitle")
@@ -106,6 +106,7 @@ class SRTScreen(QWidget):
         self.reaction_editor = QPlainTextEdit()
         self.reaction_editor.setPlaceholderText("State your decisive action and outcome... (Auto-advances in 30 seconds)")
         self.reaction_editor.setFont(QFont("Segoe UI", 12))
+        self.reaction_editor.setMinimumHeight(90)
         reaction_layout.addWidget(self.reaction_editor, stretch=1)
 
         char_stats_h = QHBoxLayout()

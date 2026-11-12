@@ -39,8 +39,8 @@ class MainWindow(QMainWindow):
         self.theme_manager = theme_manager
 
         self.setWindowTitle("SSB Practice Studio — Psychological Test Preparation")
-        self.setMinimumSize(1150, 720)
-        self.resize(1280, 800)
+        self.setMinimumSize(960, 580)
+        self.resize(1180, 720)
 
         # Explicitly apply window icon
         from app.config import get_app_root
@@ -140,6 +140,7 @@ class MainWindow(QMainWindow):
     def _on_theme_changed(self, theme_name: str) -> None:
         """Propagate theme palette updates to sidebar and test screens."""
         self.sidebar.apply_theme(theme_name)
+        self.dashboard_screen.apply_theme(theme_name)
         self.wat_screen.apply_theme(theme_name)
         self.srt_screen.apply_theme(theme_name)
         self.tat_screen.apply_theme(theme_name)

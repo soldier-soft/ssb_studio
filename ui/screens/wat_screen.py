@@ -79,10 +79,11 @@ class WATScreen(QWidget):
         # Central Word Display Card
         self.word_card = QFrame()
         self.word_card.setProperty("class", "HeroCard")
-        self.word_card.setMinimumHeight(240)
+        self.word_card.setMinimumHeight(140)
         word_card_layout = QVBoxLayout(self.word_card)
         word_card_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        word_card_layout.setSpacing(14)
+        word_card_layout.setContentsMargins(20, 16, 20, 16)
+        word_card_layout.setSpacing(10)
 
         self.prompt_sub = QLabel("ASSOCIATE SPONTANEOUSLY")
         self.prompt_sub.setProperty("class", "StatLabel")
@@ -91,6 +92,7 @@ class WATScreen(QWidget):
 
         self.word_label = QLabel("WORD")
         self.word_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.word_label.setWordWrap(True)
         word_card_layout.addWidget(self.word_label)
 
         self.main_layout.addWidget(self.word_card, stretch=1)
@@ -99,7 +101,7 @@ class WATScreen(QWidget):
         input_frame = QFrame()
         input_frame.setProperty("class", "CardFrame")
         input_layout = QVBoxLayout(input_frame)
-        input_layout.setContentsMargins(18, 14, 18, 14)
+        input_layout.setContentsMargins(18, 12, 18, 14)
         input_layout.setSpacing(8)
 
         input_title = QLabel("Type your immediate thought / sentence:")
@@ -109,6 +111,7 @@ class WATScreen(QWidget):
         self.response_input = QLineEdit()
         self.response_input.setPlaceholderText("Type association here... (Saved automatically)")
         self.response_input.setFont(QFont("Segoe UI", 13))
+        self.response_input.setMinimumHeight(44)
         self.response_input.returnPressed.connect(self._on_return_pressed)
         input_layout.addWidget(self.response_input)
 

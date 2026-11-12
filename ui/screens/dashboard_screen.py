@@ -395,3 +395,15 @@ class DashboardScreen(QWidget):
     def _on_view_recovery_clicked(self) -> None:
         if hasattr(self, "_uncompleted_session_id"):
             self.view_session_requested.emit(self._uncompleted_session_id)
+
+    def apply_theme(self, theme_name: str) -> None:
+        """Update KPI cards, badges, and colors for light/dark theme."""
+        theme = theme_name if theme_name in ("dark", "light") else "dark"
+        for card in [
+            getattr(self, "stat_completed", None),
+            getattr(self, "stat_practice_time", None),
+            getattr(self, "stat_completion_rate", None),
+            getattr(self, "stat_total_responses", None),
+        ]:
+            if card and hasattr(card, "set_theme"):
+                card.set_theme(theme)
