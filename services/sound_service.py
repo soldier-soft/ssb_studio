@@ -44,15 +44,29 @@ class SoundService:
             if cue_name == "countdown":
                 # Short high tick
                 winsound.Beep(950, 45)
+            elif cue_name == "hurry":
+                winsound.Beep(720, 50)
             elif cue_name == "transition":
                 # Double chime for phase advancement
                 winsound.Beep(660, 70)
                 winsound.Beep(880, 100)
             elif cue_name == "bell":
-                # Triad completion fan-fare
+                # Triad completion fanfare
                 winsound.Beep(523, 90)
                 winsound.Beep(659, 90)
                 winsound.Beep(784, 160)
+            elif cue_name == "focus_5min_warning":
+                # Distinctive 4-tone ascending bell reminder for 5 minutes remaining
+                winsound.Beep(659, 120)
+                winsound.Beep(830, 140)
+                winsound.Beep(987, 160)
+                winsound.Beep(1318, 260)
+            elif cue_name == "completion":
+                # Triumphant bugle fanfare
+                winsound.Beep(392, 140)
+                winsound.Beep(523, 140)
+                winsound.Beep(659, 160)
+                winsound.Beep(784, 320)
             elif cue_name == "click":
                 winsound.Beep(1200, 25)
         except Exception as e:

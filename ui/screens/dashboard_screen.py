@@ -74,11 +74,10 @@ class DashboardScreen(QWidget):
 
         title = QLabel("Candidate Practice Dashboard")
         title.setProperty("class", "H1")
-        title.setStyleSheet("font-size: 26px; font-weight: 900; color: #F8FAFC;")
+        title.setStyleSheet("font-size: 26px; font-weight: 900;")
 
         subtitle = QLabel("Full-fidelity offline examination simulators for TAT picture analysis, WAT rapid association, and SRT crisis reaction.")
         subtitle.setProperty("class", "Subtitle")
-        subtitle.setStyleSheet("color: #94A3B8; font-size: 13px; line-height: 1.4;")
 
         text_layout.addWidget(title)
         text_layout.addWidget(subtitle)
@@ -88,6 +87,13 @@ class DashboardScreen(QWidget):
         act_v = QVBoxLayout()
         act_v.setSpacing(8)
         act_v.setAlignment(Qt.AlignmentFlag.AlignVCenter)
+
+        daily_btn = QPushButton("🔥  Today's Daily Task")
+        daily_btn.setProperty("class", "SuccessBtn")
+        daily_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        daily_btn.setStyleSheet("font-weight: 700; background-color: #059669; color: #FFFFFF; border-radius: 8px; padding: 8px 16px;")
+        daily_btn.clicked.connect(lambda: self.navigate_requested.emit("dailytask"))
+        act_v.addWidget(daily_btn)
 
         import_btn = QPushButton("📁  Import Content")
         import_btn.setProperty("class", "PrimaryBtn")

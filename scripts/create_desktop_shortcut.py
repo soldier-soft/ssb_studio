@@ -23,7 +23,7 @@ $Shortcut = $WshShell.CreateShortcut($ShortcutPath)
 $Shortcut.TargetPath = "{str(target_path)}"
 $Shortcut.WorkingDirectory = "{str(ROOT_DIR)}"
 $Shortcut.IconLocation = "{str(icon_target)},0"
-$Shortcut.Description = "SSB Practice Studio - Officer Assessment Psychological Tests"
+$Shortcut.Description = "SSB Practice Studio - Officer Assessment Psychological Tests (Developed by Lt. V. Elangovan)"
 $Shortcut.Save()
 Write-Host "Created desktop shortcut at: $ShortcutPath"
 """

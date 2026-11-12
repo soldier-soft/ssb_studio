@@ -16,7 +16,9 @@ from app.app_context import AppContext
 from database.models import ContentSet, Preset
 from ui.components.animated_stack import AnimatedStackedWidget
 from ui.components.navbar import SidebarNav
+from ui.screens.daily_task_screen import DailyTaskScreen
 from ui.screens.dashboard_screen import DashboardScreen
+from ui.screens.focus_screen import FocusScreen
 from ui.screens.history_screen import HistoryScreen
 from ui.screens.library_screen import LibraryScreen
 from ui.screens.report_screen import ReportScreen
@@ -74,6 +76,8 @@ class MainWindow(QMainWindow):
 
         # Screen instances
         self.dashboard_screen = DashboardScreen(self.ctx)
+        self.daily_task_screen = DailyTaskScreen(self.ctx)
+        self.focus_screen = FocusScreen(self.ctx)
         self.builder_screen = SessionBuilderScreen(self.ctx)
         self.tat_screen = TATScreen(self.ctx)
         self.wat_screen = WATScreen(self.ctx)
@@ -86,6 +90,8 @@ class MainWindow(QMainWindow):
         # Register screens in stack
         self.screen_indices = {
             "dashboard": self.stack.addWidget(self.dashboard_screen),
+            "dailytask": self.stack.addWidget(self.daily_task_screen),
+            "focus": self.stack.addWidget(self.focus_screen),
             "builder": self.stack.addWidget(self.builder_screen),
             "tat": self.stack.addWidget(self.tat_screen),
             "wat": self.stack.addWidget(self.wat_screen),
@@ -125,6 +131,9 @@ class MainWindow(QMainWindow):
         self.srt_screen.session_finished.connect(self._on_session_finished)
         self.srt_screen.session_abandoned.connect(self._on_session_abandoned)
 
+        # Daily Task signal
+        self.daily_task_screen.mission_finished.connect(lambda: self.navigate_to("dashboard"))
+
         # Settings signals
         self.settings_screen.theme_change_requested.connect(
             lambda t: self.theme_manager.apply_theme(t)
@@ -141,6 +150,8 @@ class MainWindow(QMainWindow):
         """Propagate theme palette updates to sidebar and test screens."""
         self.sidebar.apply_theme(theme_name)
         self.dashboard_screen.apply_theme(theme_name)
+        self.daily_task_screen.apply_theme(theme_name)
+        self.focus_screen.apply_theme(theme_name)
         self.wat_screen.apply_theme(theme_name)
         self.srt_screen.apply_theme(theme_name)
         self.tat_screen.apply_theme(theme_name)
@@ -159,6 +170,8 @@ class MainWindow(QMainWindow):
             # Refresh targeted screen
             if page_name == "dashboard":
                 self.dashboard_screen.refresh_data()
+            elif page_name == "dailytask":
+                self.daily_task_screen.load_daily_task()
             elif page_name == "builder":
                 self.builder_screen.refresh_builder()
             elif page_name == "library":

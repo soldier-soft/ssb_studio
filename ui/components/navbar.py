@@ -24,6 +24,8 @@ class SidebarNav(QFrame):
 
     NAV_ITEMS = [
         ("dashboard", "🏠  Dashboard"),
+        ("dailytask", "🔥  Daily Task"),
+        ("focus", "🎯  Focus Timer"),
         ("builder", "🚀  Start Session"),
         ("tat", "🖼️  TAT Practice"),
         ("wat", "⚡  WAT Practice"),
